@@ -25,7 +25,7 @@ const Login = () => {
                 localStorage.setItem("studenttoken", data.token);
                 console.log(data);
                 navigate("/"); // Redirect on success
-
+hbihba
             }
             // const data = await response.json();
             // console.log("Response:", data);
