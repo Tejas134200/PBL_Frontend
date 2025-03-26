@@ -1,0 +1,143 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1e1e1e; /* Dark background for the entire page */
+    color: #ffffff; /* White text for contrast */
+    margin: 0;
+    padding: 0;
+
+
+}
+
+.editor-container {
+    display: flex;
+    padding: 20px;
+    max-width: 1200px;
+    /*margin: auto;*/
+    margin-top: 0;
+    padding-top: 0;
+    gap: 20px;
+
+}
+
+/* Question Section (Left Side) */
+.question-section {
+    flex: 1;
+    background-color: #2d2d2d; /* Darker background for the question section */
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.question-section h2 {
+    color: #4CAF50; /* Green color for headings */
+    margin-bottom: 15px;
+}
+
+.question-section p {
+    color: #cccccc; /* Light gray for text */
+    line-height: 1.6;
+}
+
+/* Editor Section (Right Side) */
+.editor-section {
+    flex: 2;
+    margin-top: 0;
+    padding-top: 0;
+    background-color: #2d2d2d; /* Darker background for the editor section */
+    /*padding: 20px;*/
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.editor-section h2 {
+    color: #4CAF50; /* Green color for headings */
+    margin-bottom: 15px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #ffffff; /* White text for labels */
+}
+
+select {
+    width: 100%;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #444; /* Darker border */
+    background-color: #1e1e1e; /* Dark background for dropdown */
+    color: #ffffff; /* White text for dropdown */
+}
+
+textarea {
+    width: 100%;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #444; /* Darker border */
+    background-color: #1e1e1e; /* Dark background for textareas */
+    color: #ffffff; /* White text for textareas */
+    font-family: monospace;
+}
+
+.code-editor {
+    height: 200px;
+}
+
+.input-box {
+    height: 80px;
+}
+
+.output-box {
+    height: 100px;
+}
+
+.run-button {
+    background-color: #4CAF50; /* Green button */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.run-button:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+.error-box {
+    margin-top: 10px;
+    color: red;
+}
+.CodeMirror {
+    padding: 0; /* Remove padding */
+    margin: 0;  /* Remove margin */
+}
+.navbar1{
+    background-color: #323030;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    height: 50px;
+    
+}
+.footer1 {
+    background-color: #323030;
+    width: 100%;
+    display: flex;
+    position: fixed;
+    bottom: 0;
+
+    height:80px;
+    z-index: auto;
+}

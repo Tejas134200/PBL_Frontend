@@ -1,0 +1,140 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #f4f4f4, #e0e0e0);
+  width: 100%;
+  font-family: 'Arial', sans-serif;
+}
+
+.login-form {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  width: 380px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: fadeIn 0.5s ease-in-out;
+}
+.visible{
+  color: black;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+h1 {
+  margin-bottom: 25px;
+  font-size: 28px;
+  color: #333;
+  font-weight: 600;
+}
+
+label {
+  display: block;
+  text-align: left;
+  width: 100%;
+  font-weight: 500;
+  margin-top: 15px;
+  color: #555;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  margin-top: 8px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus {
+  border-color: #007BFF;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+  outline: none;
+}
+
+.error {
+  color: #ff4d4d;
+  font-size: 0.9em;
+  margin-top: 5px;
+  text-align: left;
+  width: 100%;
+  font-weight: 500;
+}
+
+.login-button2 {
+  margin-top: 25px;
+  padding: 14px;
+  width: 70%;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.login-button2:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+.login-button2:active {
+  transform: translateY(0);
+}
+
+.login-button3 {
+  margin-top: 25px;
+  padding: 14px;
+  width: 70%;
+  background-color: #ec0f49;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.login-button3:hover {
+  background-color: #b3001b;
+  transform: translateY(-2px);
+}
+
+.login-button3:active {
+  transform: translateY(0);
+}
+
+/* Optional: Add a subtle animation to the button */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.login-button2:hover {
+  animation: pulse 1s infinite;
+}
