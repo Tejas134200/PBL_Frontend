@@ -28,12 +28,12 @@ const Login = () => {
 
 
             if (data.token) {
-                console.log("gvduyhvwayhcjvayhfb");
+                console.log("Token is Generated");
                 localStorage.setItem("studenttoken", data.token); // Store JWT in local storage
                 navigate("/"); // Redirect on success
             }
             else{
-                console.log("error:wjgdvgwjhdywhvwhjkj");
+                console.log("error:Token not found.");
             }
         } catch (err) {
             console.error("Error:", err);
