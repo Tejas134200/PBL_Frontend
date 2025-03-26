@@ -20,21 +20,24 @@ const Login = () => {
                 body: JSON.stringify({ username: seatNumber, password, role: "STUDENT" }), // Added role field
                 credentials: "include",
             });
-            // const data  = await response.json();
-
-            const data = await response;
-            console.log("Response:", data);
-
-
-
-            if (data.token) {
-                console.log("gvduyhvwayhcjvayhfb");
-                localStorage.setItem("studenttoken", data.token); // Store JWT in local storage
+            const data  = await response;
+            if(data){
+                localStorage.setItem("studenttoken", data);
+                console.log(data.toString());
                 navigate("/"); // Redirect on success
+
             }
-            else{
-                console.log("error:wjgdvgwjhdywhvwhjkj");
-            }
+            // const data = await response.json();
+            // console.log("Response:", data);
+            //
+            // if (data.errors) {
+            //     setErrors(data.errors);
+            // }
+            //
+            // if (data.token) {
+            //     localStorage.setItem("studenttoken", data.token); // Store JWT in local storage
+            //     navigate("/Instructions"); // Redirect on success
+            // }
         } catch (err) {
             console.error("Error:", err);
         }
