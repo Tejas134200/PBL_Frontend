@@ -21,9 +21,9 @@ const AdminPortal = () => {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
-                    "Authorization": `Bearer ${localStorage.getItem("admintoken")}` // Pass admintoken in headers
+                    "Authorization": `Bearer ${localStorage.getItem("Admin_Token")}` // Pass admintoken in headers
                 },
-                body: JSON.stringify({ problemId: Number(questionID), question }),
+                body: JSON.stringify({ problemId: Number(questionID), question  , students: null}),
             });
 
 
@@ -53,7 +53,7 @@ const AdminPortal = () => {
             const response = await fetch("http://localhost:8081/api/admin/addStudent", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" ,
-                    "Authorization": `Bearer ${localStorage.getItem("admintoken")}` // Pass admintoken in headers
+                    "Authorization": `Bearer ${localStorage.getItem("Admin_Token")}` // Pass admintoken in headers
                 },
                 body: JSON.stringify({ username: seatNumber, password, role: "STUDENT" }),
             });
@@ -84,7 +84,7 @@ const AdminPortal = () => {
             const response = await fetch(`http://localhost:8081/api/admin/delete/question/${questionID}`, {
                 method: "DELETE",
                 headers: { "Content-Type": "application/json" ,
-                    "Authorization": `Bearer ${localStorage.getItem("admintoken")}` // Pass admintoken in headers
+                    "Authorization": `Bearer ${localStorage.getItem("Admin_Token")}` // Pass admintoken in headers
                 },
             });
 
@@ -113,7 +113,7 @@ const AdminPortal = () => {
             const response = await fetch(`http://localhost:8081/api/admin/delete/student/${seatNumber}`, {
                 method: "DELETE",
                 headers: { "Content-Type": "application/json",
-                    "Authorization": `Bearer ${localStorage.getItem("admintoken")}` // Pass admintoken in headers
+                    "Authorization": `Bearer ${localStorage.getItem("Admin_Token")}` // Pass admintoken in headers
                 },
             });
 

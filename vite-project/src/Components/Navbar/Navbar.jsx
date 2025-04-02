@@ -8,7 +8,7 @@ function Navbar() {
   const navigate = useNavigate();
 
   // Check if the user is logged in by checking the token in localStorage
-  const isLoggedIn = localStorage.getItem("token");
+  const isLoggedIn = localStorage.getItem("Student_Token");
 
 
   const handleLogout = () => {
@@ -36,9 +36,10 @@ function Navbar() {
             {/* Conditionally render Logout button if logged in */}
             {isLoggedIn && (
                 <button className="admin-button1" onClick={handleLogout}>
-                  Logout
+                  &larr; Logout
                 </button>
             )}
+
 
             <button className="admin-button1" onClick={() => navigate('/AdminLogin')}>
               <ShieldCheck className="admin-icon" />
