@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 
 function Home() {
   const navigate = useNavigate();
+  // localStorage.setItem("Student_Name" , "tftg")
   const [typedText, setTypedText] = useState('');
   const fullText = "Coding Assessments";
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -43,9 +44,16 @@ function Home() {
         <Navbar />
 
         {/* Name Container just below Navbar */}
-        <div className="name-container">
-          <p className="user-name">Welcome! {text}</p>
-        </div>
+        {/* In your component */}
+        {text && (
+            <div className="welcome-master">
+              <div className="welcome-sparkle">
+                <span className="welcome-icon">✨</span>
+                <span className="welcome-text">Welcome,</span>
+                <span className="username-glow">{text}</span>
+              </div>
+            </div>
+        )}
 
         <div className="background-pattern"></div>
         <div className="content-container">

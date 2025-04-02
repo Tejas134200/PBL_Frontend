@@ -1,16 +1,13 @@
 import React from 'react';
-import { Code2, ShieldCheck } from 'lucide-react';
-import pic from "../Assets/pic.jpg";
+import { Code2, ShieldCheck, Home, LogOut, LockKeyhole, ScanEye } from 'lucide-react';
 import { useNavigate } from "react-router-dom";
 import './Navbar.css';
+import pic from "../Assets/pic.jpg";
 
 function Navbar() {
   const navigate = useNavigate();
-
-  // Check if the user is logged in by checking the token in localStorage
   const isLoggedIn = localStorage.getItem("Student_Token") || localStorage.getItem("Admin_Token");
-
-
+  // localStorage.setItem("Student_Token" , "knvdkv");
   const handleLogout = () => {
     localStorage.clear();
     navigate('/');
@@ -19,36 +16,46 @@ function Navbar() {
   return (
       <nav className="navbar">
         <div className="navbar-container">
-          <div className="logo-container">
-            <div className="logo">
-              <Code2 className="logo-icon" />
-              <div className="logo-text">
-                <span className="logo-title">API</span>
-                <span className="logo-subtitle">Anti Plagiarism Interface</span>
+          {/* Premium Logo */}
+          <div className="logo-container" onClick={() => navigate('/')}>
+            <div className="logo-orb">
+              <div className="logo-orb-inner">
+                <Code2 className="logo-icon" size={28} />
+                <div className="logo-orb-ring"></div>
+                <ScanEye className="logo-icon-secondary" size={14} />
+                <LockKeyhole className="logo-icon-tertiary" size={10} />
               </div>
             </div>
+            <div className="logo-text">
+              <span className="logo-title">API</span>
+              <span className="logo-subtitle">ANTI PLAGIARISM INTERFACE</span>
+            </div>
           </div>
+
           <div className="nav-buttons">
-            <button className="admin-button1" onClick={() => navigate('/')}>
-              Home
+            <button className="nav-button" onClick={() => navigate('/')}>
+              <Home className="nav-icon" size={20} />
+              <span>Home</span>
             </button>
 
-            {/* Conditionally render Logout button if logged in */}
             {isLoggedIn && (
-                <button className="admin-button1" onClick={handleLogout}>
-                  &larr; Logout
+                <button className="nav-button" onClick={handleLogout}>
+                  <LogOut className="nav-icon" size={20} />
+                  <span>Logout</span>
                 </button>
             )}
 
-
-            <button className="admin-button1" onClick={() => navigate('/AdminLogin')}>
-              <ShieldCheck className="admin-icon" />
-              Admin Login
+            <button className="admin-button">
+              <ShieldCheck className="admin-icon" size={20} />
+              <span>Admin Portal</span>
             </button>
 
+
             <div className="college-logo">
-              <img src={pic} alt="College Logo" className="college-logo" />
+                  <img src={pic} alt="College Logo" className="college-logo" />
             </div>
+
+
           </div>
         </div>
       </nav>
