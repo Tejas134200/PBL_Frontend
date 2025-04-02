@@ -8,7 +8,7 @@ function Navbar() {
   const navigate = useNavigate();
 
   // Check if the user is logged in by checking the token in localStorage
-  const isLoggedIn = localStorage.getItem("Student_Token");
+  const isLoggedIn = localStorage.getItem("Student_Token") || localStorage.getItem("Admin_Token");
 
 
   const handleLogout = () => {
