@@ -12,6 +12,28 @@
   pointer-events: none;
 }
 
+/* Name Container */
+.name-container {
+  /*width: 100%;*/
+  text-align: right;
+  padding: 10px 10px;
+  font-size: 15px;
+  /*height: 50px;*/
+  font-weight: bold;
+  background-color: #ffffff;
+  color: #333;
+  border-bottom: 1px solid #ccc;
+  position: absolute;
+  top:70px;
+  height:25px;
+  border-radius: 20px;
+  right: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
 .content-container {
   padding-top: 64px;
   max-width: 1200px;

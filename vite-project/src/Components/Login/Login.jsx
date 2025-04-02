@@ -8,6 +8,7 @@ const Login = () => {
     const [password, setPassword] = useState("");
     const [errors, setErrors] = useState({});
     const navigate = useNavigate();
+    // const [name, setName] = useState("Welcome");
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -22,14 +23,16 @@ const Login = () => {
             });
             // const data  = await response.json();
 
-            const data = await response;
+            const data = await response.json();
             console.log("Response:", data);
 
 
 
             if (data.token) {
                 console.log("Token is Generated");
-                localStorage.setItem("studenttoken", data.token); // Store JWT in local storage
+                localStorage.setItem("Student_Name", data.name);
+
+                localStorage.setItem("Student_Token", data.token); // Store JWT in local storage
                 navigate("/"); // Redirect on success
             }
             else{

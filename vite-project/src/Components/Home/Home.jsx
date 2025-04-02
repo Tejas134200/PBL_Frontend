@@ -9,6 +9,17 @@ function Home() {
   const [typedText, setTypedText] = useState('');
   const fullText = "Coding Assessments";
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [text, setText] = useState('');
+
+  
+
+  // Retrieve and set name properly
+  useEffect(() => {
+    const name = localStorage.getItem("Student_Name");
+    if (name) {
+      setText(name);
+    }
+  }, []); // Run only once on mount
 
   // Typing effect logic
   useEffect(() => {
@@ -16,13 +27,12 @@ function Home() {
       const timeout = setTimeout(() => {
         setTypedText((prev) => prev + fullText[currentIndex]);
         setCurrentIndex((prev) => prev + 1);
-      }, 100); // Adjust typing speed here (100ms per character)
+      }, 100);
 
       return () => clearTimeout(timeout);
     }
-  }, [currentIndex, fullText]);
+  }, [currentIndex]);
 
-  // Reset the typing effect when the component mounts
   useEffect(() => {
     setTypedText('');
     setCurrentIndex(0);
@@ -31,11 +41,17 @@ function Home() {
   return (
       <main className="home">
         <Navbar />
+
+        {/* Name Container just below Navbar */}
+        <div className="name-container">
+          <p className="user-name">Welcome! {text}</p>
+        </div>
+
         <div className="background-pattern"></div>
         <div className="content-container">
           <div className="content-wrapper">
             <h1 className="main-title">
-              Ensuring Integrity in <span className="highlight"> {typedText}</span>
+              Ensuring Integrity in <span className="highlight">{typedText}</span>
             </h1>
 
             <p className="description">
@@ -58,6 +74,7 @@ function Home() {
                 Start Test
               </button>
             </div>
+
             <p className="description bold">
               You must first Log-in then can click Start button
             </p>

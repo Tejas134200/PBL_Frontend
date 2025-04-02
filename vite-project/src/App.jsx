@@ -9,7 +9,8 @@ import Timer from './Components/Timer/Timer';
 import Login from "./Components/Login/Login.jsx";
 import AdminLogin from "./Components/Login/AdminLogin.jsx";
 import AdminPortal from "./Components/AdminPortal/AdminPortal.jsx";
-import Jdoodle from "./Components/Jdoodle/Jdoodle.jsx";
+// import CodeEditor from "./Components/Codemirror/Codemirror.jsx";
+// import Jdoodle from "./Components/Jdoodle/Jdoodle.jsx";
 import Navbar from "./Components/Navbar/Navbar.jsx";
 
 function App() {
@@ -21,7 +22,8 @@ function App() {
             <Route path="/Login" element={<Login />} />
             <Route path="/AdminLogin" element={<AdminLogin />} ></Route>
             <Route path="/AdminPortal" element={ <AdminPortal />} />
-            <Route path="/Jdoodle" element={ <Jdoodle/> } />
+            {/*<Route path="/Jdoodle" element={ <Jdoodle/> } />*/}
+
           <Route path="/Users" element={<Users />} />
           <Route path="/Editor" element={<Editor />} />
           <Route path="/Instructions" element={<Instruction />} />

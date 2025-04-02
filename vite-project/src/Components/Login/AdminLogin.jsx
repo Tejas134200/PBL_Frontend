@@ -24,13 +24,15 @@ const AdminLogin = () => {
             const data = await response.json();
             console.log("Response:", data);
 
-            if (data.errors) {
-                setErrors(data.errors);
-            }
+
 
             if (data.token) {
-                localStorage.setItem("admintoken", data.token); // Store JWT in local storage
+                localStorage.setItem("Admin_Token", data.token); // Store JWT in local storage
                 navigate("/adminPortal"); // Redirect on success
+                localStorage.setItem("Admin_Name" , data.name);
+            }
+            else{
+                alert("Please Enter Correct Credentials");
             }
         } catch (err) {
             console.error("Error:", err);
