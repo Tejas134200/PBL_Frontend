@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 
 function Home() {
   const navigate = useNavigate();
-  // localStorage.setItem("Student_Name" , "tftg")
+  localStorage.setItem("Admin_Token" , "tftjhvuyvhcsg")
   const [typedText, setTypedText] = useState('');
   const fullText = "Coding Assessments";
   const [currentIndex, setCurrentIndex] = useState(0);

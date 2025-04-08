@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { User, Lock, LogIn } from "lucide-react";
 import "./Login.css";
 import Navbar from "../Navbar/Navbar.jsx";
 
@@ -11,61 +12,67 @@ const AdminLogin = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        setErrors({}); // Reset errors
+        setErrors({});
 
         try {
             const response = await fetch("http://localhost:8081/api/auth/login", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ username: seatNumber, password, role: "ADMIN" }), // Added role field
+                body: JSON.stringify({ username: seatNumber, password, role: "ADMIN" }),
                 credentials: "include",
             });
 
             const data = await response.json();
             console.log("Response:", data);
 
-
-
             if (data.token) {
-                localStorage.setItem("Admin_Token", data.token); // Store JWT in local storage
-                navigate("/adminPortal"); // Redirect on success
-                localStorage.setItem("Admin_Name" , data.name);
-            }
-            else{
-                alert("Please Enter Correct Credentials");
+                localStorage.setItem("Admin_Token", data.token);
+                localStorage.setItem("Admin_Name", data.name);
+                navigate("/adminPortal");
+            } else {
+                alert("Please enter correct credentials.");
             }
         } catch (err) {
             console.error("Error:", err);
         }
-
     };
 
     return (
         <div className="login-container">
-            <Navbar/>
+            <Navbar />
             <form className="login-form" onSubmit={handleSubmit}>
                 <h1>Admin Login</h1>
-                <label className="visible" htmlFor="seat_number">Username</label>
-                <input
-                    type="text"
-                    name="seat_number"
-                    value={seatNumber}
-                    onChange={(e) => setSeatNumber(e.target.value)}
-                    required
-                />
+
+                <div className="input-group">
+                    <User className="input-icon" />
+                    <input
+                        type="text"
+                        name="seat_number"
+                        placeholder="Username"
+                        value={seatNumber}
+                        onChange={(e) => setSeatNumber(e.target.value)}
+                        required
+                    />
+                </div>
                 {errors.seat_number && <div className="error">{errors.seat_number}</div>}
 
-                <label className="visible"  htmlFor="password">Password</label>
-                <input
-                    type="password"
-                    name="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                />
+                <div className="input-group">
+                    <Lock className="input-icon" />
+                    <input
+                        type="password"
+                        name="password"
+                        placeholder="Password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        required
+                    />
+                </div>
                 {errors.password && <div className="error">{errors.password}</div>}
 
-                <button type="submit" className="login-button3">Login</button>
+                <button type="submit" className="login-button2">
+                    <LogIn size={20} style={{ marginRight: "8px" }} />
+                    Login
+                </button>
             </form>
         </div>
     );

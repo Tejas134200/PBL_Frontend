@@ -2,7 +2,9 @@
   min-height: 100vh;
   background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
   position: relative;
+  /*scrollbar-color: #0000FF;*/
 }
+
 
 .background-pattern {
   position: absolute;
@@ -208,3 +210,4 @@
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(0,0,0,0.3);
 }
+

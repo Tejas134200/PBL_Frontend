@@ -4,16 +4,25 @@ import './App.css';
 import Home from './Components/Home/Home';
 import Instruction from './Components/Instructions/Instructions';
 import Editor from './Components/Editor/Editor';
-import Users from './Components/Users/Users';
 import Timer from './Components/Timer/Timer';
 import Login from "./Components/Login/Login.jsx";
 import AdminLogin from "./Components/Login/AdminLogin.jsx";
 import AdminPortal from "./Components/AdminPortal/AdminPortal.jsx";
-// import CodeEditor from "./Components/Codemirror/Codemirror.jsx";
 // import Jdoodle from "./Components/Jdoodle/Jdoodle.jsx";
 import Navbar from "./Components/Navbar/Navbar.jsx";
+import { Navigate } from "react-router-dom";
+import TestCompletionPage from "./Components/Last/Last.jsx";
 
 function App() {
+    const ProtectedRoute = ({ element }) => {
+        const token = localStorage.getItem("Admin_Token");
+        return token ? element : <Navigate to="/AdminLogin" />;
+    };
+    localStorage.setItem("Student_Token", "hguyvhf");
+    const ProtectedRouteStudent = ({ element }) => {
+        const token = localStorage.getItem("Student_Token");
+        return token ? element : <Navigate to="/login" />;
+    }
   return (
       <Router>
         <Routes>
@@ -21,12 +30,11 @@ function App() {
           <Route path="/Timer" element={<Timer />} />
             <Route path="/Login" element={<Login />} />
             <Route path="/AdminLogin" element={<AdminLogin />} ></Route>
-            <Route path="/AdminPortal" element={ <AdminPortal />} />
+            <Route path="/AdminPortal" element={<ProtectedRoute element={<AdminPortal />} />} />
             {/*<Route path="/Jdoodle" element={ <Jdoodle/> } />*/}
-
-          <Route path="/Users" element={<Users />} />
           <Route path="/Editor" element={<Editor />} />
-          <Route path="/Instructions" element={<Instruction />} />
+            <Route path="/TestCompletion" element={<TestCompletionPage/>}/>
+          <Route path="/Instructions" element={<ProtectedRouteStudent element={<Instruction />} />} />
         </Routes>
       </Router>
   );

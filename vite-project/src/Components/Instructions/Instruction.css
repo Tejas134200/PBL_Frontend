@@ -1,87 +1,239 @@
-/* Container */
+/* Instruction.css - Modern Elegant Design */
+
+/* ============ BASE STYLES ============ */
+:root {
+  --primary: #4361ee;
+  --primary-dark: #3a0ca3;
+  --secondary: #4cc9f0;
+  --accent: #f72585;
+  --light: #f8f9fa;
+  --dark: #212529;
+  --gray: #6c757d;
+  --light-gray: #e9ecef;
+  --success: #38b000;
+}
+
+/* ============ BACKGROUND DESIGN ============ */
+body {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  min-height: 100vh;
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ============ MAIN CONTAINER ============ */
 .instruction-container {
-  background-color: #f4f7fa;
-  border-radius: 10px;
-  padding: 30px;
-  width: 80%;
-  max-width: 600px;
-  margin: 50px auto;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  text-align: center;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 16px;
+  padding: 40px;
+  width: 85%;
+  max-width: 700px;
+  margin: 40px auto;
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  position: relative;
+  overflow: hidden;
 }
 
-/* Title */
+.instruction-container::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, var(--secondary) 0%, transparent 70%);
+  opacity: 0.1;
+  z-index: -1;
+}
+
+/* ============ TITLE STYLES ============ */
 .title {
-  font-size: 32px;
-  font-weight: bold;
-  color: #2c3e50;
-  margin-bottom: 20px;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+  margin-bottom: 30px;
+  position: relative;
+  display: inline-block;
 }
 
-/* Instruction List */
+.title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: var(--accent);
+  border-radius: 2px;
+}
+
+/* ============ INSTRUCTION LIST ============ */
 .instruction-list {
   list-style-type: none;
-  padding-left: 0;
-  font-size: 16px;
-  color: #34495e;
-  margin-bottom: 30px;
+  padding: 0;
+  margin: 0 0 40px 0;
   text-align: left;
 }
 
 .instruction-list li {
-  margin: 15px 0;
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 20px;
+  line-height: 1.6;
+  color: var(--dark);
+  font-size: 1.1rem;
+}
+
+.instruction-list li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--primary);
+  font-weight: bold;
 }
 
 .instruction-list strong {
-  color: #007bff;
+  color: var(--primary);
+  font-weight: 600;
 }
 
-/* Agreement Checkbox */
+/* ============ AGREEMENT CHECKBOX ============ */
 .agreement-container {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 20px;
-  font-size: 16px;
-  color: #2c3e50;
+  margin-bottom: 30px;
+  position: relative;
 }
 
 .agreement-container input[type="checkbox"] {
-  margin-right: 10px;
-  width: 18px;
-  height: 18px;
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--primary);
+  border-radius: 4px;
+  margin-right: 12px;
   cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.agreement-container input[type="checkbox"]:checked {
+  background-color: var(--primary);
+}
+
+.agreement-container input[type="checkbox"]:checked::after {
+  content: '✓';
+  position: absolute;
+  color: white;
+  font-size: 14px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .agreement-container label {
+  color: var(--dark);
+  font-size: 1.1rem;
   cursor: pointer;
+  user-select: none;
 }
 
-/* Button */
+/* ============ START TEST BUTTON ============ */
 .start-test-button {
-  background-color: #007bff;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
   color: white;
-  padding: 12px 25px;
+  padding: 16px 40px;
   border: none;
-  border-radius: 5px;
-  font-size: 18px;
+  border-radius: 50px;
+  font-size: 1.2rem;
+  font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.3s, transform 0.2s;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(67, 97, 238, 0.3);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
 }
 
 .start-test-button:hover {
-  background-color: #0056b3;
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(67, 97, 238, 0.4);
 }
 
 .start-test-button:active {
   transform: translateY(0);
 }
 
-/* Disabled Button */
-.start-test-button:disabled {
-  background-color: #b0c4de;
-  cursor: not-allowed;
+.start-test-button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0));
+  opacity: 0;
+  transition: opacity 0.3s;
 }
 
-  
+.start-test-button:hover::after {
+  opacity: 1;
+}
+
+/* Disabled Button */
+.start-test-button:disabled {
+  background: var(--light-gray);
+  color: var(--gray);
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none !important;
+}
+
+/* ============ RESPONSIVE ADJUSTMENTS ============ */
+@media (max-width: 768px) {
+  .instruction-container {
+    width: 90%;
+    padding: 30px;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .instruction-list li {
+    font-size: 1rem;
+  }
+
+  .start-test-button {
+    padding: 14px 30px;
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .instruction-container {
+    padding: 25px 20px;
+    border-radius: 12px;
+  }
+
+  .title {
+    font-size: 1.8rem;
+  }
+
+  .instruction-list li {
+    padding-left: 25px;
+    font-size: 0.95rem;
+  }
+
+  .agreement-container label {
+    font-size: 1rem;
+  }
+}

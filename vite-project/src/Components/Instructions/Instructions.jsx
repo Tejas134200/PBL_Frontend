@@ -4,27 +4,18 @@ import './Instruction.css';
 
 const Instruction = () => {
     const [agreed, setAgreed] = useState(false);
-    const navigate = useNavigate(); // ✅ Hook for navigation
+    const navigate = useNavigate();
 
     const goEditor = () => {
-        navigate('/Editor'); // ✅ Proper navigation
+        window.location.href = 'http://localhost:8000';
     };
 
-    const goFullscreen = () => {
-        if (document.documentElement.requestFullscreen) {
-            document.documentElement.requestFullscreen();
-        } else if (document.documentElement.mozRequestFullScreen) {
-            document.documentElement.mozRequestFullScreen();
-        } else if (document.documentElement.webkitRequestFullscreen) {
-            document.documentElement.webkitRequestFullscreen();
-        } else if (document.documentElement.msRequestFullscreen) {
-            document.documentElement.msRequestFullscreen();
-        }
-    };
+
+
 
     // ✅ Correct way to call both functions
     const handleStartTest = () => {
-        goFullscreen();
+
         goEditor();
     };
 
