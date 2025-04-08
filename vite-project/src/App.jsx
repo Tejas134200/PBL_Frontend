@@ -12,6 +12,7 @@ import AdminPortal from "./Components/AdminPortal/AdminPortal.jsx";
 import Navbar from "./Components/Navbar/Navbar.jsx";
 import { Navigate } from "react-router-dom";
 import TestCompletionPage from "./Components/Last/Last.jsx";
+import Question from "./Components/Question/Question.jsx";
 
 function App() {
     const ProtectedRoute = ({ element }) => {
@@ -34,6 +35,7 @@ function App() {
             {/*<Route path="/Jdoodle" element={ <Jdoodle/> } />*/}
           <Route path="/Editor" element={<Editor />} />
             <Route path="/TestCompletion" element={<TestCompletionPage/>}/>
+            <Route path="/Question" element={<Question />} />
           <Route path="/Instructions" element={<ProtectedRouteStudent element={<Instruction />} />} />
         </Routes>
       </Router>
