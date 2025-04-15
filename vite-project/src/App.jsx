@@ -13,6 +13,7 @@ import Navbar from "./Components/Navbar/Navbar.jsx";
 import { Navigate } from "react-router-dom";
 import TestCompletionPage from "./Components/Last/Last.jsx";
 import Question from "./Components/Question/Question.jsx";
+import Finaleditor from "./Components/Finaleditor/Finaleditor.jsx";
 
 function App() {
     const ProtectedRoute = ({ element }) => {
@@ -36,6 +37,7 @@ function App() {
           <Route path="/Editor" element={<Editor />} />
             <Route path="/TestCompletion" element={<TestCompletionPage/>}/>
             <Route path="/Question" element={<Question />} />
+            <Route path="/Final" element={<Finaleditor/>}/>
           <Route path="/Instructions" element={<ProtectedRouteStudent element={<Instruction />} />} />
         </Routes>
       </Router>

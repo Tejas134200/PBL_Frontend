@@ -27,7 +27,7 @@ const Login = () => {
 
             if (data.token) {
                 console.log("Token is Generated");
-                localStorage.setItem("Student_Name", data.name);
+                localStorage.setItem("Student_Name", data.username);
                 localStorage.setItem("Student_Token", data.token);
                 navigate("/");
             } else {

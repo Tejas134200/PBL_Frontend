@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // ✅ Correct way to use navigation
+import { useNavigate  , } from 'react-router-dom'; // ✅ Correct way to use navigation
 import './Instruction.css';
 
 const Instruction = () => {
@@ -7,7 +7,8 @@ const Instruction = () => {
     const navigate = useNavigate();
 
     const goEditor = () => {
-        window.location.href = 'http://localhost:8000';
+        navigate('/Final')
+
     };
 
 
